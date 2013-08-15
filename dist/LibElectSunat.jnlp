@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="LibElectSunat.jnlp">
+  <information>
+    <title>LibElectSunat</title>
+    <vendor>dcastillo</vendor>
+    <description>Sample JavaFX 2.0 application.</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <jfx:javafx-runtime version="2.2+" href="http://javadl.sun.com/webapps/download/GetFile/javafx-latest/windows-i586/javafx2.jnlp"/>
+  </resources>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="LibElectSunat.jar" size="34846" download="eager" />
+    <jar href="lib/commons-codec-1.5.jar" size="79320" download="eager" />
+    <jar href="lib/commons-logging-1.1.jar" size="57016" download="eager" />
+    <jar href="lib/derby.jar" size="2842500" download="eager" />
+    <jar href="lib/derbyclient.jar" size="561084" download="eager" />
+    <jar href="lib/derbynet.jar" size="251732" download="eager" />
+    <jar href="lib/dom4j-1.6.1.jar" size="331606" download="eager" />
+    <jar href="lib/eclipselink.jar" size="8547970" download="eager" />
+    <jar href="lib/javafx-dialogs-0.0.3.jar" size="124629" download="eager" />
+    <jar href="lib/javax.persistence_2.1.0.v201304241213.jar" size="185020" download="eager" />
+    <jar href="lib/junit-3.8.1.jar" size="131550" download="eager" />
+    <jar href="lib/log4j-1.2.13.jar" size="386443" download="eager" />
+    <jar href="lib/mysql-connector-java-5.1.6-bin.jar" size="729773" download="eager" />
+    <jar href="lib/org.eclipse.persistence.jpa.jpql_2.5.0.v20130507-3faac2b.jar" size="1476308" download="eager" />
+    <jar href="lib/poi-3.9-20121203.jar" size="2003964" download="eager" />
+    <jar href="lib/poi-excelant-3.9-20121203.jar" size="33591" download="eager" />
+    <jar href="lib/poi-ooxml-3.9-20121203.jar" size="984895" download="eager" />
+    <jar href="lib/poi-ooxml-schemas-3.9-20121203.jar" size="5310365" download="eager" />
+    <jar href="lib/poi-scratchpad-3.9-20121203.jar" size="1292975" download="eager" />
+    <jar href="lib/stax-api-1.0.1.jar" size="31315" download="eager" />
+    <jar href="lib/xmlbeans-2.3.0.jar" size="2882360" download="eager" />
+  </resources>
+<security>
+  <all-permissions/>
+</security>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="LibElectSunat" >
+    <param name="requiredFXVersion" value="2.2+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="libelectsunat.LibElectSunat"  name="LibElectSunat" />
+  <update check="always"/>
+</jnlp>

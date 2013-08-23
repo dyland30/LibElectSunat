@@ -9,6 +9,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,10 +18,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Dialogs;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
-import libelectsunat.control.Cadena;
 import libelectsunat.control.ExcelControl;
 
 /**
@@ -47,12 +49,13 @@ public class FrmPrincipalController implements Initializable {
     @FXML
     private Label label;
     @FXML
-    private TableView<?> tbTabla;
+    private TableView tbTabla;
     @FXML
     private TextField txtArchivo;
     @FXML
     private TextField txtDestino;
 
+    private String[][] matriz;
     @FXML
     void btnGenerarAction(ActionEvent event) {
     }
@@ -84,17 +87,18 @@ public class FrmPrincipalController implements Initializable {
 
                 //obtener matriz de dicho archivo
                 ExcelControl excelCont = new ExcelControl();
-                String[][] matriz = excelCont.getExcelArray(archivo);
+                matriz = excelCont.getExcelArray(archivo);
+                
                 
                 //test
-                for(int i=0; i<matriz.length;i++){
+              /*  for(int i=0; i<matriz.length;i++){
                     
                     String cad = Cadena.combine(matriz[i], "|");
                     System.out.println(cad);
                 
                 }
-                
-                
+                */
+                poblarTabla();
                 
             }
         } catch (Exception ex) {
@@ -105,6 +109,43 @@ public class FrmPrincipalController implements Initializable {
 
 
 
+    }
+    void poblarTabla(){
+        // columnas
+        if(matriz !=null && matriz.length >0 && matriz[0].length >0){
+            
+            int cantColumnas = matriz[0].length;
+            int cantFilas = matriz.length;
+            
+            for(int i=0; i<cantColumnas; i++){
+                TableColumn<String, String>  col = new TableColumn(matriz[0][i].toString()); 
+               
+                tbTabla.getColumns().add(i, col);
+                
+            }
+         
+            
+            // crear observableList
+            ObservableList<ObservableList> datos = FXCollections.observableArrayList();
+            
+            for(int i=1; i<cantFilas; i++){
+                ObservableList<String> row = FXCollections.observableArrayList();
+                for(int j=0;j<cantColumnas; j++){
+                    String valor = matriz[i][j].toString();
+                    row.add(valor);
+                    System.out.println("i "+i +" j "+ j+ " : "+valor);
+                }
+                 datos.add(row);
+            }
+            tbTabla.setItems(datos);
+                
+        }
+        
+     
+        
+        
+    
+    
     }
 
     @Override

@@ -28,7 +28,7 @@
     </MenuBar>
     <Pane layoutX="14.0" layoutY="38.0" prefHeight="140.0" prefWidth="772.0" style="&#10;" styleClass="panelSuperior">
       <children>
-        <Label layoutX="14.0" layoutY="10.0" prefWidth="742.0" text="Libros Electronicos" textAlignment="CENTER" textFill="#404040">
+        <Label layoutX="14.0" layoutY="10.0" prefWidth="742.0" text="Libros Electrónicos" textAlignment="CENTER" textFill="#404040">
           <font>
             <Font size="24.0" />
           </font>

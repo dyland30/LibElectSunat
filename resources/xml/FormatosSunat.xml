@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formatos>
+    <formato nombre="REGISTRO DE VENTAS E INGRESOS" archivoFormato="Formato_RegistroVentas.xml"/>
+    <formato nombre="REGISTRO DE COMPRAS" archivoFormato="Formato_RegistroCompras.xml"/>
+    
+    
+</formatos>

@@ -11,28 +11,32 @@
   </resources>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="LibElectSunat.jar" size="35375" download="eager" />
-    <jar href="lib/commons-codec-1.5.jar" size="79323" download="eager" />
-    <jar href="lib/commons-logging-1.1.jar" size="57017" download="eager" />
-    <jar href="lib/datafx-core-1.0.jar" size="121575" download="eager" />
-    <jar href="lib/derby.jar" size="2842502" download="eager" />
-    <jar href="lib/derbyclient.jar" size="561085" download="eager" />
-    <jar href="lib/derbynet.jar" size="251735" download="eager" />
-    <jar href="lib/dom4j-1.6.1.jar" size="331609" download="eager" />
-    <jar href="lib/eclipselink.jar" size="8547972" download="eager" />
+    <jar href="LibElectSunat.jar" size="40660" download="eager" />
+    <jar href="lib/commons-codec-1.5.jar" size="79324" download="eager" />
+    <jar href="lib/commons-logging-1.1.jar" size="57021" download="eager" />
+    <jar href="lib/datafx-core-1.0.jar" size="121578" download="eager" />
+    <jar href="lib/deploy.jar" size="4352922" download="eager" />
+    <jar href="lib/derby.jar" size="2842505" download="eager" />
+    <jar href="lib/derbyclient.jar" size="561087" download="eager" />
+    <jar href="lib/derbynet.jar" size="251736" download="eager" />
+    <jar href="lib/dom4j-1.6.1.jar" size="331610" download="eager" />
+    <jar href="lib/eclipselink.jar" size="8547975" download="eager" />
     <jar href="lib/javafx-dialogs-0.0.3.jar" size="124632" download="eager" />
-    <jar href="lib/javax.persistence_2.1.0.v201304241213.jar" size="185024" download="eager" />
-    <jar href="lib/junit-3.8.1.jar" size="131548" download="eager" />
-    <jar href="lib/log4j-1.2.13.jar" size="386444" download="eager" />
-    <jar href="lib/mysql-connector-java-5.1.6-bin.jar" size="729775" download="eager" />
+    <jar href="lib/javaws.jar" size="928825" download="eager" />
+    <jar href="lib/javax.persistence_2.1.0.v201304241213.jar" size="185026" download="eager" />
+    <jar href="lib/jfxrt.jar" size="15659828" download="eager" />
+    <jar href="lib/junit-3.8.1.jar" size="131551" download="eager" />
+    <jar href="lib/log4j-1.2.13.jar" size="386446" download="eager" />
+    <jar href="lib/mysql-connector-java-5.1.6-bin.jar" size="729776" download="eager" />
     <jar href="lib/org.eclipse.persistence.jpa.jpql_2.5.0.v20130507-3faac2b.jar" size="1476309" download="eager" />
-    <jar href="lib/poi-3.9-20121203.jar" size="2003963" download="eager" />
-    <jar href="lib/poi-excelant-3.9-20121203.jar" size="33593" download="eager" />
-    <jar href="lib/poi-ooxml-3.9-20121203.jar" size="984896" download="eager" />
-    <jar href="lib/poi-ooxml-schemas-3.9-20121203.jar" size="5310367" download="eager" />
-    <jar href="lib/poi-scratchpad-3.9-20121203.jar" size="1292976" download="eager" />
-    <jar href="lib/stax-api-1.0.1.jar" size="31312" download="eager" />
-    <jar href="lib/xmlbeans-2.3.0.jar" size="2882363" download="eager" />
+    <jar href="lib/plugin.jar" size="1982503" download="eager" />
+    <jar href="lib/poi-3.9-20121203.jar" size="2003965" download="eager" />
+    <jar href="lib/poi-excelant-3.9-20121203.jar" size="33596" download="eager" />
+    <jar href="lib/poi-ooxml-3.9-20121203.jar" size="984898" download="eager" />
+    <jar href="lib/poi-ooxml-schemas-3.9-20121203.jar" size="5310369" download="eager" />
+    <jar href="lib/poi-scratchpad-3.9-20121203.jar" size="1292977" download="eager" />
+    <jar href="lib/stax-api-1.0.1.jar" size="31316" download="eager" />
+    <jar href="lib/xmlbeans-2.3.0.jar" size="2882365" download="eager" />
   </resources>
 <security>
   <all-permissions/>

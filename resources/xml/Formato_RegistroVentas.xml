@@ -24,7 +24,16 @@
         <tipoDato>fecha</tipoDato>
         <longitud>10</longitud>
         <longitudExacta>si</longitudExacta>
-        <formato>ddMMyyyy</formato>
+        <formato>dd/MM/yyyy</formato>
+        <requerido>no</requerido>
+        <valorDefecto></valorDefecto>
+    </col>
+    <col pos="4">
+        <descripcion>Precio</descripcion>
+        <tipoDato>numerico</tipoDato>
+        <longitud>14</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato>############.00</formato>
         <requerido>no</requerido>
         <valorDefecto></valorDefecto>
     </col>

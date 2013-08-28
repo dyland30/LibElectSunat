@@ -5,10 +5,12 @@
 package libelectsunat.control;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.Locale;
 import libelectsunat.entidades.Campo;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 
@@ -48,7 +50,12 @@ public class Cadena {
     public static String formatearNumero(String patron, Double numero){
         String output ="";
         if(patron!=null && patron.length()>0){
-            DecimalFormat myFormatter = new DecimalFormat(patron);
+            
+            DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(Locale.US);
+            otherSymbols.setDecimalSeparator('.');
+            otherSymbols.setGroupingSeparator(',');
+            DecimalFormat myFormatter = new DecimalFormat(patron,otherSymbols);
+            
             output = myFormatter.format(numero);
         } else{
             output = numero.toString();

@@ -37,7 +37,7 @@
         <Label layoutX="14.0" layoutY="52.0" text="Formato:" />
         <Label layoutX="14.0" layoutY="78.0" text="Archivo Excel:" />
         <Label layoutX="577.0" layoutY="78.0" text="Hoja:" />
-        <ComboBox fx:id="cmbFormato" layoutX="112.0" layoutY="50.0" prefHeight="21.0" prefWidth="369.00007792968245">
+        <ComboBox fx:id="cmbFormato" layoutX="112.0" layoutY="50.0" onAction="#cmbFormatoAction" prefHeight="21.0" prefWidth="369.00007792968245">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -57,7 +57,7 @@
             </FXCollections>
           </items>
         </ComboBox>
-        <Button fx:id="btnMostrar" layoutX="10.0" layoutY="116.0" mnemonicParsing="false" onAction="#btnMostrarAction" prefWidth="127.0" text="Volver a Mostrar" />
+        <Button fx:id="btnMostrar" layoutX="10.0" layoutY="116.0" mnemonicParsing="false" onAction="#btnMostrarAction" prefWidth="127.0" text="Dar Formato" />
       </children>
     </Pane>
     <TitledPane animated="false" layoutX="14.0" layoutY="189.0" prefHeight="312.0" prefWidth="758.0" text="Vista Previa" textOverrun="ELLIPSIS">

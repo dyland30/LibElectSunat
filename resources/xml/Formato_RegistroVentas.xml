@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<campos>
+    <col pos="1">
+        <descripcion>Periodo</descripcion>
+        <tipoDato>numerico</tipoDato>
+        <longitud>8</longitud>
+        <longitudExacta>si</longitudExacta>
+        <formato>########</formato>
+        <requerido>si</requerido>
+        <valorDefecto></valorDefecto>
+    </col>
+    <col pos="2">
+        <descripcion>Número correlativo del Registro o código único de la operación</descripcion>
+        <tipoDato>alfanumerico</tipoDato>
+        <longitud>40</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato></formato>
+        <requerido>si</requerido>
+        <valorDefecto></valorDefecto>
+    </col>
+    <col pos="3">
+        <descripcion>Fecha de emisión del Comprobante de Pago</descripcion>
+        <tipoDato>fecha</tipoDato>
+        <longitud>10</longitud>
+        <longitudExacta>si</longitudExacta>
+        <formato>ddMMyyyy</formato>
+        <requerido>no</requerido>
+        <valorDefecto></valorDefecto>
+    </col>
+   
+</campos>

@@ -48,13 +48,15 @@ public class Cadena {
         return out.toString();
     }
     public static String formatearNumero(String patron, Double numero){
-        String output ="";
+        String output;
         if(patron!=null && patron.length()>0){
             
-            DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(Locale.US);
+            DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(Locale.getDefault());
             otherSymbols.setDecimalSeparator('.');
             otherSymbols.setGroupingSeparator(',');
             DecimalFormat myFormatter = new DecimalFormat(patron,otherSymbols);
+            
+            
             
             output = myFormatter.format(numero);
         } else{
@@ -123,7 +125,7 @@ public class Cadena {
         // verificar que no exceda el tamaño limite 
         if(campo.getLongitud()>0){
             if(cadFormateada.length()>campo.getLongitud()){
-                cadFormateada = cadFormateada.substring(0, campo.getLongitud()-1);
+                cadFormateada = cadFormateada.substring(0, campo.getLongitud());
                 
             }
         }

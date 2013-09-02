@@ -29,13 +29,221 @@
         <valorDefecto></valorDefecto>
     </col>
     <col pos="4">
-        <descripcion>Precio</descripcion>
-        <tipoDato>numerico</tipoDato>
-        <longitud>14</longitud>
+        <descripcion>Fecha de Vencimiento o Fecha de Pago</descripcion>
+        <tipoDato>fecha</tipoDato>
+        <longitud>10</longitud>
         <longitudExacta>no</longitudExacta>
-        <formato>############.00</formato>
+        <formato>dd/MM/yyyy</formato>
         <requerido>no</requerido>
         <valorDefecto></valorDefecto>
     </col>
-   
+    <col pos="5">
+        <descripcion>Tipo de Comprobante de Pago o Documento</descripcion>
+        <tipoDato>numerico</tipoDato>
+        <longitud>2</longitud>
+        <longitudExacta>si</longitudExacta>
+        <formato>00</formato>
+        <requerido>no</requerido>
+        <valorDefecto>00</valorDefecto>
+    </col>
+    <col pos="6">
+        <descripcion>Número serie del comprobante de pago o documento o número de serie de la maquina registradora</descripcion>
+        <tipoDato>alfanumerico</tipoDato>
+        <longitud>20</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato></formato>
+        <requerido>si</requerido>
+        <valorDefecto>-</valorDefecto>
+    </col>
+<col pos="7">
+        <descripcion>Número del comprobante de pago o documento.
+En caso de optar por anotar el importe total de las operaciones realizadas diariamente, registrar el número inicial</descripcion>
+        <tipoDato>alfanumerico</tipoDato>
+        <longitud>20</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato></formato>
+        <requerido>si</requerido>
+        <valorDefecto></valorDefecto>
+    </col>
+<col pos="8">
+        <descripcion>En caso de optar por anotar el importe total de las operaciones realizadas diariamente, registrar el número final.</descripcion>
+        <tipoDato>numerico</tipoDato>
+        <longitud>20</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato>####################</formato>
+        <requerido>no</requerido>
+        <valorDefecto>0</valorDefecto>
+    </col>
+
+    <col pos="9">
+        <descripcion>Tipo de Documento de Identidad del cliente</descripcion>
+        <tipoDato>alfanumerico</tipoDato>
+        <longitud>1</longitud>
+        <longitudExacta>si</longitudExacta>
+        <formato></formato>
+        <requerido>no</requerido>
+        <valorDefecto>0</valorDefecto>
+    </col>
+    <col pos="10">
+        <descripcion>Número de Documento de Identidad del cliente</descripcion>
+        <tipoDato>alfanumerico</tipoDato>
+        <longitud>15</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato></formato>
+        <requerido>no</requerido>
+        <valorDefecto>-</valorDefecto>
+    </col>
+    <col pos="11">
+        <descripcion>Apellidos y nombres, denominación o razón social  del cliente</descripcion>
+        <tipoDato>alfanumerico</tipoDato>
+        <longitud>60</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato></formato>
+        <requerido>no</requerido>
+        <valorDefecto>-</valorDefecto>
+    </col>
+    <col pos="12">
+        <descripcion>Valor facturado de la exportación</descripcion>
+        <tipoDato>numerico</tipoDato>
+        <longitud>15</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato>############.##</formato>
+        <requerido>si</requerido>
+        <valorDefecto>0.00</valorDefecto>
+    </col>
+    <col pos="13">
+        <descripcion>Base imponible de la operación gravada (3)</descripcion>
+        <tipoDato>numerico</tipoDato>
+        <longitud>15</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato>############.##</formato>
+        <requerido>si</requerido>
+        <valorDefecto>0.00</valorDefecto>
+    </col>
+   <col pos="14">
+        <descripcion>Importe total de la operación exonerada</descripcion>
+        <tipoDato>numerico</tipoDato>
+        <longitud>15</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato>############.##</formato>
+        <requerido>si</requerido>
+        <valorDefecto>0.00</valorDefecto>
+    </col>
+    <col pos="15">
+        <descripcion>Importe total de la operación inafecta</descripcion>
+        <tipoDato>numerico</tipoDato>
+        <longitud>15</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato>############.##</formato>
+        <requerido>si</requerido>
+        <valorDefecto>0.00</valorDefecto>
+    </col>
+    <col pos="16">
+        <descripcion>ISC, de ser el caso</descripcion>
+        <tipoDato>numerico</tipoDato>
+        <longitud>15</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato>############.##</formato>
+        <requerido>si</requerido>
+        <valorDefecto>0.00</valorDefecto>
+    </col>
+    <col pos="17">
+        <descripcion>IGV y/o IPM (4)</descripcion>
+        <tipoDato>numerico</tipoDato>
+        <longitud>15</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato>############.##</formato>
+        <requerido>si</requerido>
+        <valorDefecto>0.00</valorDefecto>
+    </col>
+    <col pos="18">
+        <descripcion>IGV y/o IPM (4)</descripcion>
+        <tipoDato>numerico</tipoDato>
+        <longitud>15</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato>############.##</formato>
+        <requerido>si</requerido>
+        <valorDefecto>0.00</valorDefecto>
+    </col>
+    <col pos="19">
+        <descripcion>IVAP(5)</descripcion>
+        <tipoDato>numerico</tipoDato>
+        <longitud>15</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato>############.##</formato>
+        <requerido>si</requerido>
+        <valorDefecto>0.00</valorDefecto>
+    </col>
+    <col pos="20">
+        <descripcion>Otros tributos y cargos que no forman parte de la base imponible</descripcion>
+        <tipoDato>numerico</tipoDato>
+        <longitud>15</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato>############.##</formato>
+        <requerido>si</requerido>
+        <valorDefecto>0.00</valorDefecto>
+    </col>
+    <col pos="21">
+        <descripcion>Importe total del comprobante de pago</descripcion>
+        <tipoDato>numerico</tipoDato>
+        <longitud>15</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato>############.##</formato>
+        <requerido>si</requerido>
+        <valorDefecto>0.00</valorDefecto>
+    </col>
+    <col pos="22">
+        <descripcion>Tipo de cambio</descripcion>
+        <tipoDato>numerico</tipoDato>
+        <longitud>5</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato>#.000</formato>
+        <requerido>si</requerido>
+        <valorDefecto>0.000</valorDefecto>
+    </col>
+    <col pos="23">
+        <descripcion>Fecha de emisión del comprobante de pago o documento original que se modifica</descripcion>
+        <tipoDato>fecha</tipoDato>
+        <longitud>10</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato>dd/MM/yyyy</formato>
+        <requerido>no</requerido>
+        <valorDefecto>01/01/0001</valorDefecto>
+    </col>
+    <col pos="24">
+        <descripcion>Tipo del comprobante de pago o documento original que se modifica</descripcion>
+        <tipoDato>numerico</tipoDato>
+        <longitud>2</longitud>
+        <longitudExacta>si</longitudExacta>
+        <formato>00</formato>
+        <requerido>no</requerido>
+        <valorDefecto>00</valorDefecto>
+    </col>
+    <col pos="25">
+        <descripcion>Número de serie del comprobante de pago o documento original que se modifica</descripcion>
+        <tipoDato>alfanumerico</tipoDato>
+        <longitud>20</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato></formato>
+        <requerido>no</requerido>
+        <valorDefecto>-</valorDefecto>
+    </col>
+    <col pos="26">
+        <descripcion>Número del comprobante de pago o documento original que se modifica</descripcion>
+        <tipoDato>alfanumerico</tipoDato>
+        <longitud>20</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato></formato>
+        <requerido>no</requerido>
+        <valorDefecto>-</valorDefecto>
+    </col>
+    <col pos="27">
+        <descripcion>Indica el estado del comprobante de pago y a la incidencia en la base imponible  en relación al periodo tributario correspondiente</descripcion>
+        <tipoDato>numerico</tipoDato>
+        <longitud>1</longitud>
+        <longitudExacta>no</longitudExacta>
+        <formato>#</formato>
+        <requerido>no</requerido>
+        <valorDefecto></valorDefecto>
+    </col>
 </campos>

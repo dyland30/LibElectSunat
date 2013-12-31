@@ -12,6 +12,9 @@ import javafx.collections.ObservableList;
 import libelectsunat.entidades.FormatoSunat;
 import javax.xml.parsers.*;
 import libelectsunat.entidades.Campo;
+import libelectsunat.entidades.IndicadorOperacion;
+import libelectsunat.entidades.Moneda;
+import libelectsunat.entidades.Oportunidad;
 
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
@@ -38,6 +41,8 @@ public class XmlControl {
                 FormatoSunat fsunat = new FormatoSunat();
                 fsunat.setNombre(nd.getAttributes().getNamedItem("nombre").getNodeValue());
                 fsunat.setArchivoFormato(nd.getAttributes().getNamedItem("archivoFormato").getNodeValue());
+                fsunat.setCodigo(nd.getAttributes().getNamedItem("codigo").getNodeValue());
+                fsunat.setEstructuraNombre(nd.getAttributes().getNamedItem("estructuraNombre").getNodeValue());
                 ls.add(fsunat);
 
             }
@@ -49,6 +54,88 @@ public class XmlControl {
         return ls;
 
     }
+    
+    public ObservableList<Moneda> obtenerMonedas(String rutaXml) {
+        ObservableList<Moneda> ls = FXCollections.observableArrayList();
+        Document doc;
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        try {
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            doc = db.parse(rutaXml);
+
+            NodeList nodos = doc.getElementsByTagName("moneda");
+            int totalNodos = nodos.getLength();
+            for (int i = 0; i < totalNodos; i++) {
+                Node nd = nodos.item(i);
+                //nd.getAttributes().getNamedItem("")
+                Moneda ent = new Moneda();
+                ent.setCodigo(nd.getAttributes().getNamedItem("codigo").getNodeValue());
+                ent.setDescripcion(nd.getAttributes().getNamedItem("descripcion").getNodeValue());
+                ls.add(ent);
+            }
+        } catch (ParserConfigurationException | SAXException pce) {
+            System.out.println(pce.getMessage());
+        } catch (IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
+        return ls;
+
+    }
+    
+    public ObservableList<IndicadorOperacion> obtenerIndicadorOperaciones(String rutaXml) {
+        ObservableList<IndicadorOperacion> ls = FXCollections.observableArrayList();
+        Document doc;
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        try {
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            doc = db.parse(rutaXml);
+
+            NodeList nodos = doc.getElementsByTagName("indOperacion");
+            int totalNodos = nodos.getLength();
+            for (int i = 0; i < totalNodos; i++) {
+                Node nd = nodos.item(i);
+                //nd.getAttributes().getNamedItem("")
+                IndicadorOperacion ent = new IndicadorOperacion();
+                ent.setCodigo(nd.getAttributes().getNamedItem("codigo").getNodeValue());
+                ent.setDescripcion(nd.getAttributes().getNamedItem("descripcion").getNodeValue());
+                ls.add(ent);
+            }
+        } catch (ParserConfigurationException | SAXException pce) {
+            System.out.println(pce.getMessage());
+        } catch (IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
+        return ls;
+
+    }
+    
+    public ObservableList<Oportunidad> obtenerOportunidadesPresentacion(String rutaXml) {
+        ObservableList<Oportunidad> ls = FXCollections.observableArrayList();
+        Document doc;
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        try {
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            doc = db.parse(rutaXml);
+
+            NodeList nodos = doc.getElementsByTagName("oportunidad");
+            int totalNodos = nodos.getLength();
+            for (int i = 0; i < totalNodos; i++) {
+                Node nd = nodos.item(i);
+                //nd.getAttributes().getNamedItem("")
+                Oportunidad ent = new Oportunidad();
+                ent.setCodigo(nd.getAttributes().getNamedItem("codigo").getNodeValue());
+                ent.setDescripcion(nd.getAttributes().getNamedItem("descripcion").getNodeValue());
+                ls.add(ent);
+            }
+        } catch (ParserConfigurationException | SAXException pce) {
+            System.out.println(pce.getMessage());
+        } catch (IOException ioe) {
+            System.err.println(ioe.getMessage());
+        }
+        return ls;
+
+    }
+
 
     public List<Campo> obtenerCampos(String rutaXml) {
 

@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<configuracion>
+
 <formatos>
-    <formato nombre="REGISTRO DE VENTAS E INGRESOS" archivoFormato="resources/xml/Formato_RegistroVentas.xml"/>
-    <formato nombre="REGISTRO DE COMPRAS" archivoFormato="resources/xml/Formato_RegistroCompras.xml"/>
-    
-    
+    <formato codigo="140100" nombre="REGISTRO DE VENTAS E INGRESOS" archivoFormato="resources/xml/Formato_RegistroVentas.xml"
+    estructuraNombre="LERRRRRRRRRRRAAAAMMDDLLLLLL00OIM1.TXT"/>
+    <formato codigo="080100" nombre="REGISTRO DE COMPRAS" archivoFormato="resources/xml/Formato_RegistroCompras.xml"
+    estructuraNombre="LERRRRRRRRRRRAAAAMMDDLLLLLL00OIM1.TXT"/>  
+    <formato codigo="999999" nombre="PRUEBA" archivoFormato="resources/xml/formatoPrueba.xml"
+    estructuraNombre="LERRRRRRRRRRRAAAAMMDDLLLLLL00OIM1.TXT"/>     
 </formatos>
+<monedas>
+    <moneda codigo="1" descripcion ="Nuevos Soles"/>
+    <moneda codigo="2" descripcion ="US$ Dólares"/>
+</monedas>
+<indOperaciones>
+    <indOperacion codigo ="1" descripcion = "Empresa o Entidad Operativa"/>
+    <indOperacion codigo ="2" descripcion = "Cierre del libro - no obligado a llevarlo"/>
+    <indOperacion codigo ="0" descripcion = "Cierre de operaciones - baja de inscripción en el RUC"/>
+</indOperaciones>
+<oportunidadPresentaciones>
+    <oportunidad codigo="00" descripcion = "No Aplica"/>
+    <oportunidad codigo="01" descripcion = "Al 31 de Diciembre"/>
+    <oportunidad codigo="02" descripcion = "Al 31 de enero, por modificación del porcentaje"/>
+    <oportunidad codigo="03" descripcion = "Al 30 de junio, por modificación del porcentaje"/>
+    <oportunidad codigo="04" descripcion = "Al 30 de junio, por modificación del coeficiente"/>
+    <oportunidad codigo="05" descripcion = "Al día anterior a la entrada en vigencia de la fusión, escisión y demás formas de reorganización de sociedades o empresas o extinción de la persona jurídica"/>
+    <oportunidad codigo="06" descripcion = "A la fecha del balance de liquidación, cierre o cese definitivo del deudor tributario"/>
+    <oportunidad codigo="07" descripcion = "A la fecha de presentación para libre propósito"/>
+    
+</oportunidadPresentaciones>
+</configuracion>

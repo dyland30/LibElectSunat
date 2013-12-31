@@ -26,17 +26,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Dialogs;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import libelectsunat.control.Cadena;
 import libelectsunat.control.ExcelControl;
 import libelectsunat.control.XmlControl;
 import libelectsunat.entidades.Campo;
 import libelectsunat.entidades.FormatoSunat;
+import libelectsunat.entidades.IndicadorOperacion;
+import libelectsunat.entidades.Moneda;
+import libelectsunat.entidades.Oportunidad;
 import libelectsunat.util.MatrixDataSource;
 
 /**
@@ -64,14 +67,43 @@ public class FrmPrincipalController implements Initializable {
     @FXML
     private Label label;
     @FXML
+    private ComboBox<IndicadorOperacion> cmbIndOperacion;
+
+    @FXML
+    private ComboBox<Moneda> cmbMoneda;
+    
+    @FXML
+    private ComboBox<Oportunidad> cmbOportunidad;
+     
+    @FXML
     private TableView tbTabla;
     @FXML
     private TextField txtArchivo;
     @FXML
     private TextField txtDestino;
+    
+    @FXML
+    private TextField txtDia;
+
+    @FXML
+    private TextField txtMensaje;
+     
+    @FXML
+    private TextField txtMes;
+
+    @FXML
+    private TextField txtRuc;
+
+    @FXML
+    private TextField txtYear;
+    
     private File archivo;
     private String[][] matriz;
     private ObservableList<FormatoSunat> lsFormatos;
+    private ObservableList<Moneda> lsMonedas;
+    private ObservableList<IndicadorOperacion> lsIndicadorOperaciones;
+    private ObservableList<Oportunidad> lsOportunidades;
+    
     private List<Campo> lsCampos;
     private FormatoSunat formatoSeleccionado;
     private String nombreArchivoTexto;
@@ -86,11 +118,13 @@ public class FrmPrincipalController implements Initializable {
         generarNombreArchivoTexto();
         generarArchivoTexto();
         
-        Dialogs.showInformationDialog(null, "se ha generado el archivo "+nombreArchivoTexto+ " correctamente");
+        mostrarMensaje("INFO", "Se generó el archivo "+nombreArchivoTexto+ " correctamente");
+       // Dialogs.showInformationDialog(null, "Se generó el archivo "+nombreArchivoTexto+ " correctamente");
         
         } catch (Exception ex) {
-            Dialogs.showErrorDialog(null, ex.getMessage(),
-                    "Se ha encontrado el siguiente error");
+            mostrarMensaje("ERR", "ERROR: "+ex.getMessage());
+          //  Dialogs.showErrorDialog(null, ex.getMessage(),
+          //          "Se ha encontrado el siguiente error");
             Logger.getLogger(FrmPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -107,8 +141,10 @@ public class FrmPrincipalController implements Initializable {
             validarDatos();
             poblarTabla();
         } catch (Exception ex) {
-            Dialogs.showErrorDialog(null, ex.getMessage(),
-                    "Se ha encontrado el siguiente error", "Error");
+            mostrarMensaje("ERR", "ERROR: "+ex.getMessage());
+            
+           // Dialogs.showErrorDialog(null, ex.getMessage(),
+           //         "Se ha encontrado el siguiente error", "Error");
             Logger.getLogger(FrmPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -131,12 +167,11 @@ public class FrmPrincipalController implements Initializable {
         try {
             FileChooser fileChooser = new FileChooser();
             fileChooser.getExtensionFilters().addAll(
-                    new FileChooser.ExtensionFilter("XLS", "*.xls"),
-                    new FileChooser.ExtensionFilter("XLSX", "*.xlsx"));
+                    new FileChooser.ExtensionFilter("EXCEL", "*.xls*"));
             fileChooser.setTitle("Seleccionar Archivo Excel");
 
             archivo = fileChooser.showOpenDialog(null);
-            String ruta = "";
+            String ruta;
             if (archivo != null) {
                 ruta = archivo.getPath();
 
@@ -152,7 +187,8 @@ public class FrmPrincipalController implements Initializable {
                  */
                 leerArchivo();
                 poblarTabla();
-
+                txtMensaje.setVisible(false);
+                
             }
         } catch (Exception ex) {
             Logger.getLogger(FrmPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
@@ -161,8 +197,10 @@ public class FrmPrincipalController implements Initializable {
     }
 
     void leerArchivo() throws Exception {
+       
         if (txtArchivo.getText() != null && txtArchivo.getText().length() > 0) {
             archivo = new File(txtArchivo.getText());
+           
         }
 
 
@@ -171,7 +209,7 @@ public class FrmPrincipalController implements Initializable {
             matriz = excelCont.getExcelArray(archivo);
 
         }
-
+        
 
     }
 
@@ -239,9 +277,68 @@ public class FrmPrincipalController implements Initializable {
         return camp;
 
     }
+    void mostrarMensaje(String tipo, String mensaje){
+        if(tipo.equals("INFO")){
+            txtMensaje.setStyle("-fx-background-color: lightgreen;" +
+                                "-fx-font-weight: bold;" +
+                                "-fx-text-fill: green;" +
+                                "-fx-font-size: 15px;");
+            
+        } else{
+            txtMensaje.setStyle("-fx-background-color: pink;" +
+                                "-fx-font-weight: bold;" +
+                                "-fx-text-fill: red;" +
+                                "-fx-font-size: 15px;");
+        }
+        txtMensaje.setText(mensaje);
+        txtMensaje.setVisible(true);
+        
+    }
 
-    void generarNombreArchivoTexto() {
-        nombreArchivoTexto = "prueba.txt";
+    void generarNombreArchivoTexto() throws Exception {
+        if(formatoSeleccionado!=null){
+            String ruc = txtRuc.getText();
+            String dia = txtDia.getText();
+            
+            String mes = txtMes.getText();
+            String year = txtYear.getText();
+            Moneda mon = cmbMoneda.getValue();
+            IndicadorOperacion indOp = cmbIndOperacion.getValue();
+            Oportunidad oport = cmbOportunidad.getValue();
+            String patron = formatoSeleccionado.getEstructuraNombre();
+            
+            String indInf ="0";
+            if (matriz != null && matriz.length > 0 && matriz[0].length > 0) indInf ="1";
+             
+            
+            if(ruc==null || ruc.trim().length()==0) throw new Exception("DEBE INGRESAR UN NÚMERO DE RUC");
+            
+            
+            if(dia==null || dia.trim().length()==0) dia = "00";
+            if(mes==null || mes.trim().length()==0) mes = "00";
+            if(year==null || year.trim().length()==0) year = "0000";
+            
+            if(mon==null) {
+                mon = new Moneda();
+                mon.setCodigo("1");
+            }
+            if(oport==null){
+                oport = new Oportunidad();
+                oport.setCodigo("00");
+            }
+            if(indOp==null){
+                indOp = new IndicadorOperacion();
+                indOp.setCodigo("1");
+                
+            }
+            
+            nombreArchivoTexto=patron.replaceFirst("RRRRRRRRRRR", ruc).replaceFirst("AAAA", year).replaceFirst("MM", mes).replaceFirst("DD", dia)
+                    .replaceFirst("LLLLLL", formatoSeleccionado.getCodigo()).replaceFirst("CC", oport.getCodigo()).replaceFirst("O", indOp.getCodigo()).replaceFirst("I", indInf)
+                    .replaceFirst("M", mon.getCodigo());
+            
+        
+        } 
+        
     }
 
     void generarArchivoTexto() {
@@ -289,12 +386,20 @@ public class FrmPrincipalController implements Initializable {
         //obtener propiedades y cargar combos
         Properties prop = new Properties();
         try {
+          //  ((Stage)btnGenerar.getScene().getWindow()).setTitle("Generador de Libros Electrónicos");
             prop.load(new FileInputStream("resources/config.properties"));
             String rutaXml = prop.getProperty("rutaFormatosXml");
             XmlControl xmlControl = new XmlControl();
             lsFormatos = xmlControl.obtenerFormatos(rutaXml);
+            lsMonedas = xmlControl.obtenerMonedas(rutaXml);
+            lsIndicadorOperaciones = xmlControl.obtenerIndicadorOperaciones(rutaXml);
+            lsOportunidades = xmlControl.obtenerOportunidadesPresentacion(rutaXml);
             cmbFormato.setItems(lsFormatos);
-
+            cmbMoneda.setItems(lsMonedas);
+            cmbIndOperacion.setItems(lsIndicadorOperaciones);
+            cmbOportunidad.setItems(lsOportunidades);
+            
+            
 
         } catch (Exception ex) {
             Logger.getLogger(FrmPrincipalController.class.getName()).log(Level.SEVERE, null, ex);

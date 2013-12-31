@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.openxml4j.opc.OPCPackage;
+import org.apache.poi.poifs.filesystem.NPOIFSFileSystem;
+import org.apache.poi.poifs.filesystem.OfficeXmlFileException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -25,13 +28,27 @@ public class ExcelControl {
 
         String[][] matriz = null;
 
+        Workbook wb = null;
+        NPOIFSFileSystem npoifs = null;
+        OPCPackage pkg = null;
+        
         try {
-            Workbook wb = WorkbookFactory.create(archivo);
+            
+            try{
+                npoifs = new NPOIFSFileSystem(archivo);
+                wb = WorkbookFactory.create(npoifs);
+                
+            } catch(OfficeXmlFileException ofe){
+                pkg = OPCPackage.open(archivo);
+                wb = WorkbookFactory.create(pkg);
+            
+            }
+            
             //determinar el tamaño de la matriz basandonos en la primera fila
             Sheet hoja = wb.getSheetAt(0);
             int filaInicio = hoja.getFirstRowNum();
             int colInicio = hoja.getRow(hoja.getFirstRowNum()).getFirstCellNum();
-
+            
 
             int cantCols = (hoja.getRow(hoja.getFirstRowNum()).getLastCellNum() - hoja.getRow(hoja.getFirstRowNum()).getFirstCellNum());
             int cantRows = (hoja.getLastRowNum() - hoja.getFirstRowNum()) + 1;
@@ -107,6 +124,10 @@ public class ExcelControl {
         } catch (IOException | InvalidFormatException ex) {
             Logger.getLogger(ExcelControl.class.getName()).log(Level.SEVERE, null, ex);
             throw new Exception(ex.getMessage());
+        } finally{
+            if (npoifs != null) { npoifs.close(); }
+            if (pkg != null) { pkg.close(); }
+        
         }
 
         return matriz;

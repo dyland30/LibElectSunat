@@ -9,8 +9,11 @@ package libelectsunat.entidades;
  * @author dcastillo
  */
 public class FormatoSunat {
+    private String codigo;
     private String nombre;
     private String archivoFormato;
+    private String estructuraNombre;
+    
 
     /**
      * @return the nombre
@@ -43,6 +46,34 @@ public class FormatoSunat {
     @Override
     public String toString(){
         return this.nombre;
+    }
+
+    /**
+     * @return the codigo
+     */
+    public String getCodigo() {
+        return codigo;
+    }
+
+    /**
+     * @param codigo the codigo to set
+     */
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    /**
+     * @return the estructuraNombre
+     */
+    public String getEstructuraNombre() {
+        return estructuraNombre;
+    }
+
+    /**
+     * @param estructuraNombre the estructuraNombre to set
+     */
+    public void setEstructuraNombre(String estructuraNombre) {
+        this.estructuraNombre = estructuraNombre;
     }
     
 }

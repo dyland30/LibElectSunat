@@ -86,12 +86,12 @@ En caso de optar por anotar el importe total de las operaciones realizadas diari
     </col>
     <col pos="10">
         <descripcion>Número de Documento de Identidad del cliente</descripcion>
-        <tipoDato>alfanumerico</tipoDato>
+        <tipoDato>numerico</tipoDato>
         <longitud>15</longitud>
         <longitudExacta>no</longitudExacta>
-        <formato></formato>
+        <formato>###############</formato>
         <requerido>no</requerido>
-        <valorDefecto>-</valorDefecto>
+        <valorDefecto>0</valorDefecto>
     </col>
     <col pos="11">
         <descripcion>Apellidos y nombres, denominación o razón social  del cliente</descripcion>
@@ -107,7 +107,7 @@ En caso de optar por anotar el importe total de las operaciones realizadas diari
         <tipoDato>numerico</tipoDato>
         <longitud>15</longitud>
         <longitudExacta>no</longitudExacta>
-        <formato>############.##</formato>
+        <formato>############.00</formato>
         <requerido>si</requerido>
         <valorDefecto>0.00</valorDefecto>
     </col>
@@ -116,7 +116,7 @@ En caso de optar por anotar el importe total de las operaciones realizadas diari
         <tipoDato>numerico</tipoDato>
         <longitud>15</longitud>
         <longitudExacta>no</longitudExacta>
-        <formato>############.##</formato>
+        <formato>############.00</formato>
         <requerido>si</requerido>
         <valorDefecto>0.00</valorDefecto>
     </col>
@@ -125,7 +125,7 @@ En caso de optar por anotar el importe total de las operaciones realizadas diari
         <tipoDato>numerico</tipoDato>
         <longitud>15</longitud>
         <longitudExacta>no</longitudExacta>
-        <formato>############.##</formato>
+        <formato>############.00</formato>
         <requerido>si</requerido>
         <valorDefecto>0.00</valorDefecto>
     </col>
@@ -134,7 +134,7 @@ En caso de optar por anotar el importe total de las operaciones realizadas diari
         <tipoDato>numerico</tipoDato>
         <longitud>15</longitud>
         <longitudExacta>no</longitudExacta>
-        <formato>############.##</formato>
+        <formato>############.00</formato>
         <requerido>si</requerido>
         <valorDefecto>0.00</valorDefecto>
     </col>
@@ -143,7 +143,7 @@ En caso de optar por anotar el importe total de las operaciones realizadas diari
         <tipoDato>numerico</tipoDato>
         <longitud>15</longitud>
         <longitudExacta>no</longitudExacta>
-        <formato>############.##</formato>
+        <formato>############.00</formato>
         <requerido>si</requerido>
         <valorDefecto>0.00</valorDefecto>
     </col>
@@ -152,7 +152,7 @@ En caso de optar por anotar el importe total de las operaciones realizadas diari
         <tipoDato>numerico</tipoDato>
         <longitud>15</longitud>
         <longitudExacta>no</longitudExacta>
-        <formato>############.##</formato>
+        <formato>############.00</formato>
         <requerido>si</requerido>
         <valorDefecto>0.00</valorDefecto>
     </col>
@@ -161,7 +161,7 @@ En caso de optar por anotar el importe total de las operaciones realizadas diari
         <tipoDato>numerico</tipoDato>
         <longitud>15</longitud>
         <longitudExacta>no</longitudExacta>
-        <formato>############.##</formato>
+        <formato>############.00</formato>
         <requerido>si</requerido>
         <valorDefecto>0.00</valorDefecto>
     </col>
@@ -170,7 +170,7 @@ En caso de optar por anotar el importe total de las operaciones realizadas diari
         <tipoDato>numerico</tipoDato>
         <longitud>15</longitud>
         <longitudExacta>no</longitudExacta>
-        <formato>############.##</formato>
+        <formato>############.00</formato>
         <requerido>si</requerido>
         <valorDefecto>0.00</valorDefecto>
     </col>
@@ -179,7 +179,7 @@ En caso de optar por anotar el importe total de las operaciones realizadas diari
         <tipoDato>numerico</tipoDato>
         <longitud>15</longitud>
         <longitudExacta>no</longitudExacta>
-        <formato>############.##</formato>
+        <formato>############.00</formato>
         <requerido>si</requerido>
         <valorDefecto>0.00</valorDefecto>
     </col>
@@ -188,7 +188,7 @@ En caso de optar por anotar el importe total de las operaciones realizadas diari
         <tipoDato>numerico</tipoDato>
         <longitud>15</longitud>
         <longitudExacta>no</longitudExacta>
-        <formato>############.##</formato>
+        <formato>############.00</formato>
         <requerido>si</requerido>
         <valorDefecto>0.00</valorDefecto>
     </col>

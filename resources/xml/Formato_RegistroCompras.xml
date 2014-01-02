@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <campos>
     <col pos="1">
         <descripcion>Periodo</descripcion>
@@ -229,7 +229,7 @@
         <longitud>10</longitud>
         <longitudExacta>no</longitudExacta>
         <formato>dd/MM/yyyy</formato>
-        <requerido>no</requerido>
+        <requerido>si</requerido>
         <valorDefecto>01/01/0001</valorDefecto>
     </col>
     <col pos="25">
@@ -279,12 +279,12 @@
     </col>
     <col pos="30">
         <descripcion>Número de la Constancia de Depósito de Detracción (6)</descripcion>
-        <tipoDato>alfanumerico</tipoDato>
+        <tipoDato>numerico</tipoDato>
         <longitud>20</longitud>
         <longitudExacta>no</longitudExacta>
-        <formato></formato>
+        <formato>####################</formato>
         <requerido>no</requerido>
-        <valorDefecto>-</valorDefecto>
+        <valorDefecto>0</valorDefecto>
     </col>
     <col pos="31">
         <descripcion>Marca del comprobante de pago sujeto a retención</descripcion>

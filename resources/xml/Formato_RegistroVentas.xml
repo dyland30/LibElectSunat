@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <campos>
     <col pos="1">
@@ -244,6 +244,6 @@ En caso de optar por anotar el importe total de las operaciones realizadas diari
         <longitudExacta>no</longitudExacta>
         <formato>#</formato>
         <requerido>no</requerido>
-        <valorDefecto></valorDefecto>
+        <valorDefecto>1</valorDefecto>
     </col>
 </campos>
